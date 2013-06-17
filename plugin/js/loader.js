@@ -1,0 +1,1 @@
+blippex.core.init();

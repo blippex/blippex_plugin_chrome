@@ -1,0 +1,38 @@
+{
+  "name": "blippex",
+  "version": "0.1",
+	"minimum_chrome_version":	"20",
+//  "icons" : {
+//           "48": "images/icon48.png",
+//					 "64": "images/icon64.png",
+//          "128": "images/icon128.png" },
+  "description": "some description",
+  "homepage_url": "https://blippex.org/",
+//  "browser_action": {
+//    "default_icon": "images/toolbar.png",
+//    "default_title": "web2flickr by archify",
+//    "default_popup": "html/popup.html"
+//	},
+  "background": {
+    "scripts": [
+								"js/define.js",
+								"js/config.js",
+								"js/base.js",
+								"js/browser/settings.js",
+								"js/browser/tabs.js",
+								"js/browser/xhr.js",
+								"js/api/upload.js",
+								"js/libs/timespent.js",
+								"js/libs/misc.js",
+								"js/core.js",
+								"js/loader.js"]
+  },
+  "permissions": ["http://*/*", "https://*/*", "tabs"],
+  "content_scripts": [{
+      "matches": ["http://*/*","https://*/*"],
+      "js": ["js/content/content.js"],
+      "run_at":	"document_end"
+		}
+	],
+	"manifest_version": 2
+}
