@@ -15,22 +15,23 @@
 //	},
   "background": {
     "scripts": [
-								"js/define.js",
-								"js/config.js",
-								"js/base.js",
-								"js/browser/settings.js",
-								"js/browser/tabs.js",
-								"js/browser/xhr.js",
-								"js/api/upload.js",
-								"js/libs/timespent.js",
-								"js/libs/misc.js",
-								"js/core.js",
-								"js/loader.js"]
+								"common/js/define.js",
+								"common/js/config.js",
+								"chrome/js/base.js",
+								"common/js/browser/settings.js",
+								"common/js/browser/tabs.js",
+								"common/js/browser/xhr.js",
+								"common/js/browser/debug.js",
+								"common/js/api/upload.js",
+								"common/js/libs/timespent.js",
+								"common/js/libs/misc.js",
+								"chrome/js/core.js",
+								"common/js/loader.js"]
   },
   "permissions": ["http://*/*", "https://*/*", "tabs"],
   "content_scripts": [{
       "matches": ["http://*/*","https://*/*"],
-      "js": ["js/content/content.js"],
+      "js": ["chrome/js/content.js"],
       "run_at":	"document_end"
 		}
 	],

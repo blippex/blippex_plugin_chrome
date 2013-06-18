@@ -16,5 +16,8 @@ blippex.define('blippex.config', {
   },
   'settings': {
     'timespentvalues':  ''
+  },
+  'plugin': {
+    'debugmode':  true
   }
 });

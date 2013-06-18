@@ -37,6 +37,7 @@ blippex.define('blippex.libs.timespent', {
 		if (blippex.core.tabs[tabId]
 				&& blippex.core.tabs[tabId].status == blippex.config.status.ok
 				&& blippex.core.tabs[tabId].timespent > blippex.config.values.timeout){
+					blippex.browser.debug.log('sending time %s sec. for %s'.replace('%s',blippex.core.tabs[tabId].timespent).replace('%s',blippex.core.tabs[tabId].url))
 					blippex.api.upload.sendTime({
 						'timestamp':	blippex.core.tabs[tabId].timestamp,
 						'url':				blippex.core.tabs[tabId].url,
