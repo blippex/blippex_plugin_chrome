@@ -2,17 +2,18 @@
   "name": "blippex",
   "version": "0.1",
 	"minimum_chrome_version":	"20",
-//  "icons" : {
-//           "48": "images/icon48.png",
-//					 "64": "images/icon64.png",
-//          "128": "images/icon128.png" },
+  "icons" : {
+           "48": "chrome/images/icon48.png",
+					 "64": "chrome/images/icon64.png",
+          "128": "chrome/images/icon128.png"
+	},
   "description": "some description",
   "homepage_url": "https://blippex.org/",
-//  "browser_action": {
-//    "default_icon": "images/toolbar.png",
-//    "default_title": "web2flickr by archify",
-//    "default_popup": "html/popup.html"
-//	},
+  "browser_action": {
+    "default_icon": "chrome/images/toolbar.png",
+    "default_title": "blippex"
+    //"default_popup": "html/popup.html"
+	},
   "background": {
     "scripts": [
 								"common/js/define.js",
