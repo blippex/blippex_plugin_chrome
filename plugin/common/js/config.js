@@ -18,7 +18,7 @@ blippex.define('blippex.config', {
   },
   'settings': {
     'timespentvalues':  '',
-    'nohttps':          true
+    'nohttps':          false
   },
   'plugin': {
     'debugmode':  true
