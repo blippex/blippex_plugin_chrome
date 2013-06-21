@@ -37,5 +37,6 @@
       "run_at":	"document_end"
 		}
 	],
-	"manifest_version": 2
+	"manifest_version": 2,
+	"content_security_policy": "script-src 'self' https://use.typekit.net/tos3wkq.js; object-src 'self'"
 }
