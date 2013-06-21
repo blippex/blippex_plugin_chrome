@@ -1,9 +1,25 @@
 blippex.define('blippex.core', {
 	tabs: {},
+	
+	icons: {
+		'active': {
+			'icon':  'chrome/images/toolbar.png'
+		},
+		'inactive': {
+			'icon':  'chrome/images/toolbar_disabled.png'
+		}
+	},
+	
 	init: function() {
 		blippex.core.addListeners();
 		blippex.libs.timespent.init();
+		blippex.libs.disabled.init();
+		blippex.core.changeIcon();
 	},
+	
+	changeIcon: function() {
+		chrome.browserAction.setIcon({'path': blippex.core.icons[blippex.libs.disabled.isEnabled() ? 'active' : 'inactive'].icon});
+  },
 	
 	addListeners: function() {
 		chrome.extension.onMessage.addListener(

@@ -7,12 +7,12 @@
 					 "64": "chrome/images/icon64.png",
           "128": "chrome/images/icon128.png"
 	},
-  "description": "some description",
+  "description": "A secure and anonymous search engine made by the people, for the people",
   "homepage_url": "https://blippex.org/",
   "browser_action": {
     "default_icon": "chrome/images/toolbar.png",
-    "default_title": "blippex"
-    //"default_popup": "html/popup.html"
+    "default_title": "blippex",
+    "default_popup": "common/html/popup.html"
 	},
   "background": {
     "scripts": [
@@ -26,6 +26,7 @@
 								"common/js/api/upload.js",
 								"common/js/libs/timespent.js",
 								"common/js/libs/misc.js",
+								"common/js/libs/disabled.js",
 								"chrome/js/core.js",
 								"common/js/loader.js"]
   },

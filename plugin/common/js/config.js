@@ -12,10 +12,13 @@ blippex.define('blippex.config', {
     'https':            0x03
   },
   'values': {
-    'timeout': 2
+    'timedisabled': 0,
+    'timeout':      2,
+    'disabled':     30 * 60 * 1000
   },
   'settings': {
-    'timespentvalues':  ''
+    'timespentvalues':  '',
+    'nohttps':          true
   },
   'plugin': {
     'debugmode':  true

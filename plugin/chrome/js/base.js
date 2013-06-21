@@ -42,5 +42,12 @@ blippex.define('blippex.base', {
     'set': function(key, value){
       localStorage[key] = ['string', 'number'].indexOf((typeof value).toLowerCase()) > -1 ? value : JSON.stringify(value);
     }
+  },
+  'tabs': {
+    'add': function(oArgs){
+      chrome.tabs.create({
+        'url':  oArgs.url || ''
+      });
+    }
   }
 });
