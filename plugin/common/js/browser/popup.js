@@ -35,7 +35,7 @@ blippex.define('blippex.popup', {
 	onSearch: function(){
 		var _query = document.getElementById('blippex-input-value');
 		if (_query && _query.value.length){
-			_blippex.browser.tabs.add('https://www.blippex.org/#?q='+encodeURIComponent(_query.value));
+			_blippex.browser.tabs.add('https://www.blippex.org/?q='+encodeURIComponent(_query.value));
 			blippex.popup.onHide();
 		}
 	},
