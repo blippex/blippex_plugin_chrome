@@ -35,6 +35,10 @@
       "matches": ["http://*/*","https://*/*"],
       "js": ["chrome/js/content.js"],
       "run_at":	"document_end"
+		}, {
+      "matches": ["*://*.blippex.org/*"],
+      "js": ["chrome/js/content_start.js"],
+      "run_at":	"document_start"
 		}
 	],
 	"manifest_version": 2,
