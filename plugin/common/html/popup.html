@@ -101,6 +101,11 @@
 				input[type="text"]:focus {
 					outline: 0;
 	            }
+							
+	            input[type="text"]:active,
+				input[type="text"]:focus {
+					background: white;
+	            }
 
 			input[type="submit"] {
 				margin-left: -5px;
@@ -149,18 +154,19 @@
 			}
 
         </style>
-        <script type="text/javascript" src="https://use.typekit.net/tos3wkq.js"></script>
 				<script type="text/javascript" src="../js/define.js"></script>
 				<script type="text/javascript" src="../js/browser/popup.js"></script>
     </head>
     <body>
     	<div id="popup">
     		<img src="../images/logo-popup.png" alt="Blippex.org" />
+    		<form id="blippex-form">
     			<input type="text" id="blippex-input-value" placeholder="Looking for something?" />
     			<input type="submit" value="Search" id="blippex-input-submit" />
     			<span>
     				<input type="checkbox" name="https" value="1" checked="checked" id="blippex-checkbox-nohttps" /> Don't collect HTTPS pages | <a href="#" title="" id="blippex-input-enable"></a>
     			</span>
+    		</form>
     		<footer>
     			A search engine made <em>by</em> the people, <em>for</em> the people.
     		</footer>
