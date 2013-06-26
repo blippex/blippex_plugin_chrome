@@ -12,17 +12,26 @@
         		height: 100%;
         		margin: 0;
         		padding: 0;
+        		overflow: hidden;
         	}
 
         	html {
-        		text-align: center;
         		display: table;
         	}
 
         	a {
         		outline: none;
         		border: none;
+				text-decoration: underline;
         	}
+
+        		a:link, a:visited {
+        			color: rgba(107,151,191,1);
+        		}
+
+        		a:hover, a:active, a:focus {
+        			color: rgba(77,121,161,1);
+        		}
 
         	body {
 				font: 14px/16px "pt-sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -34,28 +43,27 @@
         	#popup {
         		padding: 20px;
         		width: 400px;
-				height: 260px;
+				height: 125px;
 				margin: 0 auto;
+				position: relative;
+				overflow: hidden;
         	}
 
         	img {
-        		width: 275px;
-        		margin-bottom: 10px;
+        		float: left;
+        		width: 37px;
+        		margin: 3px 10px 0 0;
         	}
 
-        	h2 {
-        		color: #444444;
-        		font-size: 14px;
-				line-height: 20px;
-        		font-weight: normal;
-        		margin-bottom: 25px;
-        		width: 330px;
-        		margin: 0 auto 15px;
+        	form {
+        		width: 350px;
+        		float: right;
         	}
 
         	input {
         		font-size: 14px;
-				line-height: 16px;
+				line-height: 18px;
+				border: 0;
         		padding: 10px;
         		margin: 0;
         		-moz-background-clip: padding-box;
@@ -63,8 +71,8 @@
 				background-clip: padding-box;
         	}
 			
-			input[type="search"] {
-				width: 250px;
+			input[type="text"] {
+				width: 240px;
 				border: 0;
 				background: #f4f4f2;
 				-webkit-appearance: textfield;
@@ -83,18 +91,22 @@
 				border-bottom-right-radius: 0;
 				border-bottom-left-radius: 4px;
 				border-top-left-radius: 4px;
+				border-top: 2px solid rgba(107,151,191,1);
+                border-bottom: 2px solid rgba(107,151,191,1);
+                border-left: 2px solid rgba(107,151,191,1);
 			}
 
-				input[type="search"]:hover,
-				input[type="search"]:active,
-				input[type="search"]:focus {
+				input[type="text"]:hover,
+				input[type="text"]:active,
+				input[type="text"]:focus {
 					outline: 0;
 	            }
 
 			input[type="submit"] {
 				margin-left: -5px;
 				border: 0;
-				background: #cccccc;
+				background: rgba(250,167,50,1);;
+				color: white;
 				-webkit-border-top-right-radius: 4px;
 				-webkit-border-bottom-right-radius: 4px;
 				-webkit-border-bottom-left-radius: 0;
@@ -107,6 +119,9 @@
 				border-bottom-right-radius: 4px;
 				border-bottom-left-radius: 0;
 				border-top-left-radius: 0;
+				border-top: 2px solid rgba(107,151,191,1);
+                border-bottom: 2px solid rgba(107,151,191,1);
+                border-right: 2px solid rgba(107,151,191,1);
 			}
 
 				input[type="submit"]:hover,
@@ -115,9 +130,22 @@
 					cursor: pointer;
 	            }
 
-			p {
+	        span {
+	        	display: block;
+	        	padding-top: 10px;
+	        }
+
+	        	input[type="checkbox"] {
+
+	        	}
+
+			footer {
 				font-size: 12px;
-				line-height: 14px;
+				color: #777;
+				position: absolute;
+				bottom: 10px;
+				width: 400px;
+				text-align: center;
 			}
 
         </style>
@@ -127,16 +155,15 @@
     </head>
     <body>
     	<div id="popup">
-    		<img src="../images/logo-full.svg" alt="Blippex.org" />
-			<h2>A secure and anonymous search engine made by the people, for the people.</h2>
-    		<form>
-    			<input type="search" id="blippex-input-value" placeholder="Looking for something?" />
+    		<img src="../images/logo-popup.png" alt="Blippex.org" />
+    			<input type="text" id="blippex-input-value" placeholder="Looking for something?" />
     			<input type="submit" value="Search" id="blippex-input-submit" />
-    		</form>
-    		<p>
-    			<input type="checkbox" name="https" value="1" checked="checked" id="blippex-checkbox-nohttps" /> Don't collect HTTPS pages
-    		</p>
-				<a href="#" title="" id="blippex-input-enable"></a>
+    			<span>
+    				<input type="checkbox" name="https" value="1" checked="checked" id="blippex-checkbox-nohttps" /> Don't collect HTTPS pages | <a href="#" title="" id="blippex-input-enable"></a>
+    			</span>
+    		<footer>
+    			A search engine made <em>by</em> the people, <em>for</em> the people.
+    		</footer>
     	</div>
     </body>
 </html>
