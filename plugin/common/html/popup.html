@@ -101,7 +101,7 @@
 				input[type="text"]:focus {
 					outline: 0;
 	            }
-							
+
 	            input[type="text"]:active,
 				input[type="text"]:focus {
 					background: white;
@@ -161,14 +161,14 @@
     	<div id="popup">
     		<img src="../images/logo-popup.png" alt="Blippex.org" />
     		<form id="blippex-form">
-    			<input type="text" id="blippex-input-value" placeholder="Looking for something?" />
+    			<input type="text" id="blippex-input-value" placeholder="Looking for something?" autofocus />
     			<input type="submit" value="Search" id="blippex-input-submit" />
     			<span>
-    				<input type="checkbox" name="https" value="1" checked="checked" id="blippex-checkbox-nohttps" /> Don't collect HTTPS pages | <a href="#" title="" id="blippex-input-enable"></a>
+    				A search engine made <em>by</em> the people, <em>for</em> the people.
     			</span>
     		</form>
     		<footer>
-    			A search engine made <em>by</em> the people, <em>for</em> the people.
+    			<input type="checkbox" name="https" value="1" checked="checked" id="blippex-checkbox-https" /> Send HTTPS pages | <a href="#" title="" id="blippex-input-enable"></a>
     		</footer>
     	</div>
     </body>

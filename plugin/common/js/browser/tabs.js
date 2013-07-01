@@ -5,7 +5,7 @@ blippex.define('blippex.browser.tabs', {
 		if (url.indexOf("127.0.0.1") > -1 || url.indexOf("blippex.org") > -1) {
 			status = blippex.config.status.skip;
 		} else if (url.indexOf("https:") == 0) {
-			if (blippex.browser.settings.get('nohttps')) {
+			if (!blippex.browser.settings.get('https')) {
 				status = blippex.config.status.skip;
 			}
 		} else if (url.indexOf("http:") !== 0){

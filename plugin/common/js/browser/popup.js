@@ -15,7 +15,7 @@ blippex.define('blippex.popup', {
 		blippex.popup.addEventListener('blippex-input-enable', function(){blippex.popup.onEnable()});
 		blippex.popup.addEventListener('blippex-form', function(){return false;}, 'submit');
 		blippex.popup.addEventListener('blippex-input-submit', function(){blippex.popup.onSearch()});
-		blippex.popup.addEventListener('blippex-checkbox-nohttps', function(){blippex.popup.onHttps(this.checked)});
+		blippex.popup.addEventListener('blippex-checkbox-https', function(){blippex.popup.onHttps(this.checked)});
 	},
 	addEventListener: function(id, handler, event){
     event = event || 'click';
@@ -23,15 +23,15 @@ blippex.define('blippex.popup', {
 		document.getElementById(id).addEventListener(event, handler);
 	},
 	popupRenderer: function(){
-		document.getElementById('blippex-checkbox-nohttps').checked = _blippex.browser.settings.get('nohttps', true);
+		document.getElementById('blippex-checkbox-https').checked = _blippex.browser.settings.get('https', true);
 		document.getElementById('blippex-input-enable').innerText = _blippex.libs.disabled.isEnabled() ? "Deactivate for 30min" : "Reactivate"
 	},
 	onEnable: function(){
 		_blippex.libs.disabled.toggle();
 		blippex.popup.onHide();
 	},
-	onHttps: function(skip){
-		_blippex.browser.settings.set('nohttps', skip);
+	onHttps: function(value){
+		_blippex.browser.settings.set('https', value);
 	},
 	onSearch: function(){
 		var _query = document.getElementById('blippex-input-value');
