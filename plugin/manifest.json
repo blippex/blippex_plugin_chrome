@@ -1,5 +1,5 @@
 {
-  "name": "blippex",
+  "name": "Blippex",
   "version": "1.0",
 	"minimum_chrome_version":	"20",
   "icons" : {
@@ -11,7 +11,7 @@
   "homepage_url": "https://blippex.org/",
   "browser_action": {
     "default_icon": "chrome/images/toolbar.png",
-    "default_title": "blippex",
+    "default_title": "Blippex",
     "default_popup": "common/html/popup.html"
 	},
   "background": {
