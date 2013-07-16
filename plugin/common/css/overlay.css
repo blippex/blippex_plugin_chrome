@@ -1,0 +1,114 @@
+			#blippex {
+				font-family: 'PT Sans';
+			}
+
+				#blippex ::-moz-selection {
+				    background: rgba(135,191,242,1);
+				    color: white;
+				    text-shadow: none;
+				}
+
+				#blippex ::selection {
+				    background: rgba(135,191,242,1);
+				    color: white;
+				    text-shadow: none;
+				}
+
+				#blippex * {
+					margin: 0;
+					padding: 0;
+					outline: 0;
+				}
+
+				#blippex .term {
+					padding: 10px;
+					overflow: hidden;
+					color: white;
+					background: rgba(135,191,242,1);
+					-webkit-border-top-right-radius: 4px;
+					-webkit-border-top-left-radius: 4px;
+					-moz-border-radius-topright: 4px;
+					-moz-border-radius-topleft: 4px;
+					border-top-right-radius: 4px;
+					border-top-left-radius: 4px;
+				}
+
+					#blippex .term a {
+						color: white;
+						text-decoration: none;
+					}
+
+					#blippex .term h1 {
+						float: left;
+						display: block;
+                        width: 60%;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                        overflow: hidden;
+					}
+
+					#blippex .term .logo {
+						display: block;
+						padding: 5px 0;
+						height: 15px;
+						float: right;
+						overflow: hidden;
+					}
+
+						#blippex .logo img {
+							height: 15px;
+							margin-bottom: -3px;
+						}
+
+				#blippex .results {
+					list-style: none;
+				}
+
+					#blippex li {
+						background: rgba(249,249,249,1);
+						-webkit-border-bottom-right-radius: 4px;
+						-webkit-border-bottom-left-radius: 4px;
+						-moz-border-radius-bottomright: 4px;
+						-moz-border-radius-bottomleft: 4px;
+						border-bottom-right-radius: 4px;
+						border-bottom-left-radius: 4px;
+					}
+
+					#blippex li:hover,
+					#blippex li:focus {
+						background: rgba(244,244,244,1);
+					}
+
+						#blippex li a {
+							padding: 10px;
+							display: block;
+							overflow: hidden;
+						}
+
+							#blippex li a:link {
+								color: rgba(107,151,191,1);
+								text-decoration: none;
+							}
+
+							#blippex li a:hover,
+							#blippex li a:focus {
+								text-decoration: underline;
+							}
+
+							#blippex li a:visited,
+							#blippex li a:active {
+								color: rgba(47,91,131,1);
+							}
+
+						#blippex li a img {
+							float: left;
+							width: 16px;
+							height: 16px;
+							display: block;
+							margin-right: 5px;
+						}
+
+						#blippex li a h2 {
+							font-size: 14px;
+							line-height: 14px;
+						}
