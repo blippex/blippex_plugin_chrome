@@ -1,18 +1,18 @@
 {
-	"name": "blippex",
-	"version": "0.1",
-	"minimum_chrome_version": "20",
-	"icons": {
-		"48": "chrome/images/icon48.png",
-		"64": "chrome/images/icon64.png",
-		"128": "chrome/images/icon128.png"
+  "name": "Blippex",
+  "version": "1.1",
+	"minimum_chrome_version":	"20",
+  "icons" : {
+           "48": "chrome/images/icon48.png",
+					 "64": "chrome/images/icon64.png",
+          "128": "chrome/images/icon128.png"
 	},
-	"description": "A secure and anonymous search engine made by the people, for the people",
-	"homepage_url": "https://blippex.org/",
-	"browser_action": {
-		"default_icon": "chrome/images/toolbar.png",
-		"default_title": "blippex",
-		"default_popup": "common/html/popup.html"
+  "description": "A secure and anonymous search engine made by the people, for the people",
+  "homepage_url": "https://blippex.org/",
+  "browser_action": {
+    "default_icon": "chrome/images/toolbar.png",
+    "default_title": "Blippex",
+    "default_popup": "common/html/popup.html"
 	},
 	"background": {
 		"scripts": ["common/js/define.js", "common/js/config.js", "chrome/js/base.js", "common/js/browser/settings.js", "common/js/browser/tabs.js", "common/js/browser/xhr.js", "common/js/browser/debug.js", "common/js/api/upload.js", "common/js/api/search.js", "common/js/libs/timespent.js", "common/js/libs/misc.js", "common/js/libs/disabled.js", "chrome/js/core.js", "common/js/loader.js"]
