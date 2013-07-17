@@ -16,6 +16,7 @@ blippex.define('blippex.popup', {
 		blippex.popup.addEventListener('blippex-form', function(){return false;}, 'submit');
 		blippex.popup.addEventListener('blippex-input-submit', function(){blippex.popup.onSearch()});
 		blippex.popup.addEventListener('blippex-checkbox-https', function(){blippex.popup.onHttps(this.checked)});
+		blippex.popup.addEventListener('blippex-checkbox-google', function(){blippex.popup.onGoogle(this.checked)});
 	},
 	addEventListener: function(id, handler, event){
     event = event || 'click';
@@ -24,6 +25,7 @@ blippex.define('blippex.popup', {
 	},
 	popupRenderer: function(){
 		document.getElementById('blippex-checkbox-https').checked = _blippex.browser.settings.get('https', true);
+		document.getElementById('blippex-checkbox-google').checked = _blippex.browser.settings.get('google', true);
 		document.getElementById('blippex-input-enable').innerText = _blippex.libs.disabled.isEnabled() ? "Deactivate for 30min" : "Reactivate"
 	},
 	onEnable: function(){
@@ -32,6 +34,9 @@ blippex.define('blippex.popup', {
 	},
 	onHttps: function(value){
 		_blippex.browser.settings.set('https', value);
+	},
+	onGoogle: function(value){
+		_blippex.browser.settings.set('google', value);
 	},
 	onSearch: function(){
 		var _query = document.getElementById('blippex-input-value');

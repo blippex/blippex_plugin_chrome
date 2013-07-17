@@ -14,6 +14,7 @@ blippex.define('blippex.core', {
 		blippex.core.addListeners();
 		blippex.libs.timespent.init();
 		blippex.libs.disabled.init();
+		blippex.browser.settings._init();
 		blippex.api.search.init();
 		blippex.core.changeIcon();
 	},
