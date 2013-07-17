@@ -1,5 +1,7 @@
+			@import url(http://fonts.googleapis.com/css?family=PT+Sans:400,700);
+
 			#blippex {
-				font-family: 'PT Sans';
+				font-family: 'PT Sans', Arial, sans-serif;
 			}
 
 				#blippex ::-moz-selection {
@@ -38,7 +40,8 @@
 						text-decoration: none;
 					}
 
-					#blippex .term h1 {
+					#blippex .term strong {
+						font-size: 18px;
 						float: left;
 						display: block;
                         width: 60%;
@@ -49,7 +52,6 @@
 
 					#blippex .term .logo {
 						display: block;
-						padding: 5px 0;
 						height: 15px;
 						float: right;
 						overflow: hidden;
