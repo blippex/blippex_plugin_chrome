@@ -19,7 +19,7 @@ blippex.define('blippex.api.search', {
 				</ul>\
 			</section>',
 		'item': '<li>\
-					<a href="%URL%" title="" target="_blank">\
+					<a href="%URL%" title="%URL_TITLE%" target="_blank">\
 						<img src="%FAVICON%" alt="">\
 						<h2>\
 							%TITLE%\
@@ -34,7 +34,7 @@ blippex.define('blippex.api.search', {
 					</a>\
 				</li>',
 		'noresults': '<li>\
-					<a href="#" onClick="return false">\
+					<a href="%URL%" target="_blank">\
 						<h2>\
 							Nothing found\
 						</h2>\
@@ -95,6 +95,7 @@ blippex.define('blippex.api.search', {
 							var items = '';
 							for (i = 0; i < response.hits_displayed; i++) {
 								items += blippex.api.search.render(blippex.api.search.template.item, {
+									'URL_TITLE':	response.results[i].title,
 									'TITLE': response.results[i].title,
 									'URL': response.results[i].url,
 									'FAVICON': 'https://getfavicon.appspot.com/%DOMAIN%?defaulticon=lightpng'.replace('%DOMAIN%', (response.results[i].url.match(/https?:\/\/[^/]+/i) || [''])[0])
@@ -107,6 +108,7 @@ blippex.define('blippex.api.search', {
 						} else {
 							renderedTemplate = blippex.api.search.render(renderedTemplate, {
 								'RESULTS': blippex.api.search.template.noresults,
+								'URL': 'https://www.blippex.org/?q=' + encodeURIComponent(oArgs.query),
 								'QUERY': 'https://www.blippex.org/?q=' + encodeURIComponent(oArgs.query)
 							});
 						}
