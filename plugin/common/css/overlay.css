@@ -2,6 +2,8 @@
 
 			#blippex {
 				font-family: 'PT Sans', Arial, sans-serif;
+				margin: 0 0 20px -7px;
+				min-width: 550px;
 			}
 
 				#blippex ::-moz-selection {
@@ -23,7 +25,7 @@
 				}
 
 				#blippex .term {
-					padding: 10px;
+					padding: 5px 10px;
 					overflow: hidden;
 					color: white;
 					background: rgba(135,191,242,1);
@@ -38,10 +40,11 @@
 					#blippex .term a {
 						color: white;
 						text-decoration: none;
+						padding-bottom: 3px;
 					}
 
 					#blippex .term strong {
-						font-size: 18px;
+						font-size: 16px;
 						float: left;
 						display: block;
                         width: 60%;
@@ -51,6 +54,8 @@
 					}
 
 					#blippex .term .logo {
+						padding-top: 3px;
+						font-size: 12px;
 						display: block;
 						height: 15px;
 						float: right;
@@ -113,4 +118,9 @@
 						#blippex li a h2 {
 							font-size: 14px;
 							line-height: 14px;
+							font-weight: normal;
+							width: 95%;
+                            text-overflow: ellipsis;
+                            white-space: nowrap;
+                            overflow: hidden;
 						}
