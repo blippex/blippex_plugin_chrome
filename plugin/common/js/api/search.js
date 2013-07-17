@@ -1,13 +1,13 @@
 blippex.define('blippex.api.search', {
-	xhrs:					{},
-	embed:	{
+	xhrs: {},
+	embed: {
 		'google': {
 			id: "res",
 			position: "start"
 		}
 	},
 	template: {
-		'main':	'<section id="blippex">\
+		'main': '<section id="blippex">\
 				<div class="term">\
 					<h1>%QUERY%</h1>\
 					<a href="%SEARCH%" class="logo" title="Blippex" target="_blank">\
@@ -26,75 +26,74 @@ blippex.define('blippex.api.search', {
 						</h2>\
 					</a>\
 				</li>',
-		'empty':	'data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABA'
+		'empty': 'data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABA'
 	},
-	init: function(){
+	init: function() {
 		chrome.extension.onMessage.addListener(
-      function(request, sender, sendResponse) {
-				switch (request.action){
-					case 'search':
-							blippex.api.search.search({
-								'tab':		sender.tab,
-								'engine':	request.engine,
-								'query':	request.query
-							})
-						break;
-					default:
-				}
+
+		function(request, sender, sendResponse) {
+			switch (request.action) {
+			case 'search':
+				blippex.api.search.search({
+					'tab': sender.tab,
+					'engine': request.engine,
+					'query': request.query
+				})
+				break;
+			default:
 			}
-		);
+		});
 	},
-	search: function(oArgs){
-		if (blippex.api.search.xhrs[oArgs.tab.id]){
+	search: function(oArgs) {
+		if (blippex.api.search.xhrs[oArgs.tab.id]) {
 			blippex.api.search.xhrs[oArgs.tab.id].xhr.abort();
-			window.clearTimeout(blippex.api.search.xhrs[oArgs.tab.id].timeout);
 		}
 		var http = blippex.base.xhr();
 		blippex.api.search.xhrs[oArgs.tab.id] = {
-			'xhr': 			http,
-			'timeout':	null
+			'xhr': http,
+			'timeout': null
 		}
 		var renderedTemplate = blippex.api.search.template.main.replace('%QUERY%', oArgs.query).replace('%RESULTS%', blippex.api.search.template.item).replace('%SEARCH%', 'https://www.blippex.org/?q=' + encodeURIComponent(oArgs.query));
 		renderedTemplate = renderedTemplate.replace('%FAVICON%', blippex.api.search.template.empty).replace('%TITLE%', 'Searching...');
 		chrome.tabs.sendMessage(oArgs.tab.id, {
-			'type':				'search',
-			'where':			blippex.api.search.embed[oArgs.engine],
-			'tpl':				renderedTemplate,
-			'engine':			oArgs.engine
+			'type': 'search',
+			'where': blippex.api.search.embed[oArgs.engine],
+			'tpl': renderedTemplate,
+			'engine': oArgs.engine
 		});
-		blippex.api.search.xhrs[oArgs.tab.id].timeout = window.setTimeout(function(){
-			http.open("GET", blippex.config.api.search + encodeURIComponent(oArgs.query), true);
-			http.onreadystatechange = function() {
-				if(http.readyState == 4 && http.status == 200) {
-					var isJson = true;
-					try {
-						response = JSON.parse(http.responseText);
-					}catch(e){
-						isJson = false;
-					}
-					var renderedTemplate = '';
-					if (isJson) {
-						renderedTemplate = blippex.api.search.template.main.replace('%QUERY%', oArgs.query);
-						if (response.hits_displayed > 0) {
-							var items = '';
-							for (i=0;i<3;i++) {
-								items += blippex.api.search.template.item.replace('%URL%', response.results[i].url).replace('%TITLE%', response.results[i].title);
-							}
-							renderedTemplate = renderedTemplate.replace('%RESULTS%', items).replace('%SEARCH%', 'https://www.blippex.org/?q=' + encodeURIComponent(oArgs.query));
-						} else {
-							renderedTemplate = renderedTemplate.replace('%RESULTS%', blippex.api.search.template.item).replace('%FAVICON%', blippex.api.search.template.empty).replace('%TITLE%', 'Nothing found').replace('%SEARCH%', oArgs.query);
-						}
-						chrome.tabs.sendMessage(oArgs.tab.id, {
-							'type':				'search',
-							'where':			blippex.api.search.embed[oArgs.engine],
-							'tpl':				renderedTemplate,
-							'engine':			oArgs.engine
-						});
-					}
-					blippex.api.search.xhrs[oArgs.tab.id] = null;
+		http.open("GET", blippex.config.api.search + encodeURIComponent(oArgs.query), true);
+		http.onreadystatechange = function() {
+			if (http.readyState == 4 && http.status == 200) {
+				var isJson = true;
+				try {
+					response = JSON.parse(http.responseText);
+				} catch (e) {
+					isJson = false;
 				}
+				var renderedTemplate = '';
+				if (isJson) {
+					renderedTemplate = blippex.api.search.template.main.replace('%QUERY%', oArgs.query);
+					if (response.hits_displayed > 0) {
+						var items = '';
+						for (i = 0; i < response.hits_displayed; i++) {
+							items += blippex.api.search.template.item.replace('%URL%', response.results[i].url)
+															.replace('%TITLE%', response.results[i].title)
+															.replace('%FAVICON%', response.results[i].title);
+						}
+						renderedTemplate = renderedTemplate.replace('%RESULTS%', items).replace('%SEARCH%', 'https://www.blippex.org/?q=' + encodeURIComponent(oArgs.query));
+					} else {
+						renderedTemplate = renderedTemplate.replace('%RESULTS%', blippex.api.search.template.item).replace('%FAVICON%', blippex.api.search.template.empty).replace('%TITLE%', 'Nothing found').replace('%SEARCH%', oArgs.query);
+					}
+					chrome.tabs.sendMessage(oArgs.tab.id, {
+						'type': 'search',
+						'where': blippex.api.search.embed[oArgs.engine],
+						'tpl': renderedTemplate,
+						'engine': oArgs.engine
+					});
+				}
+				blippex.api.search.xhrs[oArgs.tab.id] = null;
 			}
-			http.send();
-		}, 1000);
+		}
+		http.send();
 	}
 })
