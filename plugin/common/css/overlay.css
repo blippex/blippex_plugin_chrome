@@ -65,6 +65,11 @@
 						#blippex .logo img {
 							height: 15px;
 							margin-bottom: -3px;
+							margin-right: 5px;
+						}
+
+						#blippex .logo span {
+							margin-left: 5px;
 						}
 
 				#blippex .results {
