@@ -99,7 +99,7 @@ blippex.define('blippex.api.search', {
 									'URL_TITLE':	response.results[i].title,
 									'TITLE': response.results[i].title,
 									'URL': response.results[i].url,
-									'FAVICON': 'https://getfavicon.appspot.com/%DOMAIN%?defaulticon=lightpng'.replace('%DOMAIN%', (response.results[i].url.match(/https?:\/\/[^/]+/i) || [''])[0])
+									'FAVICON': 'https://getfavicon.appspot.com/%DOMAIN%?defaulticon=https://blippex.org/css/img/default-favicon.png'.replace('%DOMAIN%', (response.results[i].url.match(/https?:\/\/[^/]+/i) || [''])[0])
 								});
 							}
 							renderedTemplate = blippex.api.search.render(renderedTemplate, {
