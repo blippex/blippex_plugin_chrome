@@ -65,7 +65,7 @@
 						#blippex .logo img {
 							height: 15px;
 							margin-bottom: -3px;
-							margin-right: 5px;
+							margin-right : 5px;
 						}
 
 						#blippex .logo span {
@@ -122,4 +122,5 @@
                             text-overflow: ellipsis;
                             white-space: nowrap;
                             overflow: hidden;
+                            padding-top: 2px;
 						}
