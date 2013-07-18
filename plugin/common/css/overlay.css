@@ -44,6 +44,9 @@
 
 					#blippex .remove a {
 						margin: 0 10px;
+						color: rgba(107,151,191,1);
+						font-size: 14px;
+						line-height: 14px;
 					}
 
 				#blippex ::-moz-selection {
