@@ -54,12 +54,20 @@ var google = {
               document.getElementById(request.where.id).insertBefore(newDiv, document.getElementById(request.where.id).firstChild);
             }
             google.addEventListener('blippex-button-close', function(){
+              document.getElementById('blippex-layout-confirmation').style.display = '';
+              document.getElementById('blippex-layout-results').style.display = 'none';
+            });
+            google.addEventListener('blippex-button-confrim-yes', function(){
               newDiv.style.display = 'none';
               chrome.extension.sendMessage({
                 'action':   'disable_overlay',
                 'engine':   google.engine
               });
-            })
+            });
+            google.addEventListener('blippex-button-confrim-no', function(){
+              document.getElementById('blippex-layout-confirmation').style.display = 'none';
+              document.getElementById('blippex-layout-results').style.display = '';
+            });
           }
           break;
         default:
