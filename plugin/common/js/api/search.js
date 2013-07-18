@@ -8,6 +8,13 @@ blippex.define('blippex.api.search', {
 	},
 	template: {
 		'main': '<section id="blippex">\
+				<div class="remove">\
+					<em>You can still re-activate Blippex results on the extension</em>\
+				</div>\
+				<div class="remove bottom">\
+					<a href="#">Ok, close</a>\
+					<a href="#">No, keep this</a>\
+				</div>\
 				<div class="term">\
 					<strong>%SEARCH%</strong>\
 					<a href="%QUERY%" class="logo" title="Blippex" target="_blank">\
