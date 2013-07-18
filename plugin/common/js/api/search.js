@@ -35,11 +35,11 @@ blippex.define('blippex.api.search', {
 					</a>\
 				</li>',
 		'noresults': '<li>\
-					<a href="" onClick="return false;" target="_blank">\
+					<span>\
 						<h2>\
-							Nothing found\
+							Nothing found on Blippex :(\
 						</h2>\
-					</a>\
+					</span>\
 				</li>',
 		'empty': 'data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABA'
 	},

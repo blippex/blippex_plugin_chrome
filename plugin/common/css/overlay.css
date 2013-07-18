@@ -85,7 +85,8 @@
 						background: rgba(244,244,244,1);
 					}
 
-						#blippex li a {
+						#blippex li a,
+						#blippex li span {
 							padding: 10px;
 							display: block;
 							overflow: hidden;
@@ -114,7 +115,8 @@
 							margin-right: 5px;
 						}
 
-						#blippex li a h2 {
+						#blippex li a h2,
+						#blippex li span h2 {
 							font-size: 14px;
 							line-height: 14px;
 							font-weight: normal;
