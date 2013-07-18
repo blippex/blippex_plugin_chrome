@@ -35,7 +35,7 @@ blippex.define('blippex.api.search', {
 					</a>\
 				</li>',
 		'noresults': '<li>\
-					<a href="%URL%" target="_blank">\
+					<a href="" onClick="return false;" target="_blank">\
 						<h2>\
 							Nothing found\
 						</h2>\
@@ -120,7 +120,6 @@ blippex.define('blippex.api.search', {
 						} else {
 							renderedTemplate = blippex.api.search.render(renderedTemplate, {
 								'RESULTS': blippex.api.search.template.noresults,
-								'URL': 'https://www.blippex.org/?q=' + encodeURIComponent(oArgs.query),
 								'QUERY': 'https://www.blippex.org/?q=' + encodeURIComponent(oArgs.query)
 							});
 						}
