@@ -107,11 +107,6 @@
 						#blippex .logo img {
 							height: 15px;
 							margin-bottom: -3px;
-							margin-right : 5px;
-						}
-
-						#blippex .logo span {
-							margin-left: 5px;
 						}
 
 				#blippex .results {
@@ -135,7 +130,7 @@
 						}
 
 							#blippex li a:link {
-								color: rgba(107,151,191,1);
+								color: rgba(107,151,191,1) !important;
 								text-decoration: none;
 							}
 
@@ -154,7 +149,7 @@
 							width: 16px;
 							height: 16px;
 							display: block;
-							margin-right: 5px;
+							margin-right: 10px;
 						}
 
 						#blippex li a h2,
