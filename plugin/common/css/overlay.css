@@ -131,7 +131,7 @@
 						}
 
 							#blippex li a:link {
-								color: rgba(107,151,191,1);
+								color: rgba(107,151,191,1) !important;
 								text-decoration: none;
 							}
 
