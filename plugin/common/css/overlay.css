@@ -105,6 +105,14 @@
 						color: white;
 					}
 
+						#blippex .term .logo:link,
+						#blippex .term .logo:visited,
+						#blippex .term .logo:focus,
+						#blippex .term .logo:hover,
+						#blippex .term .logo:active {
+							color: white !important;
+						}
+
 						#blippex .logo img {
 							height: 15px;
 							margin-bottom: -3px;
