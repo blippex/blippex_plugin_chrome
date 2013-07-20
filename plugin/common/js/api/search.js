@@ -77,11 +77,6 @@ blippex.define('blippex.api.search', {
 			if (blippex.api.search.xhrs[oArgs.tab.id]) {
 				blippex.api.search.xhrs[oArgs.tab.id].xhr.abort();
 			}
-			var http = blippex.base.xhr();
-			blippex.api.search.xhrs[oArgs.tab.id] = {
-				'xhr': http,
-				'timeout': null
-			}
 			var renderedTemplate = blippex.api.search.render(blippex.api.search.template.main, {
 				'SEARCH': oArgs.query,
 				'RESULTS': blippex.api.search.template.searching,
@@ -94,6 +89,11 @@ blippex.define('blippex.api.search', {
 				'engine': oArgs.engine
 			});
 			if (oArgs.query) {
+				var http = blippex.base.xhr();
+				blippex.api.search.xhrs[oArgs.tab.id] = {
+					'xhr': http,
+					'timeout': null
+				}
 				http.open("GET", blippex.config.api.search + encodeURIComponent(oArgs.query), true);
 				http.onreadystatechange = function() {
 					if (http.readyState == 4 && http.status == 200) {
