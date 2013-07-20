@@ -93,58 +93,59 @@ blippex.define('blippex.api.search', {
 				'tpl': renderedTemplate,
 				'engine': oArgs.engine
 			});
-			http.open("GET", blippex.config.api.search + encodeURIComponent(oArgs.query), true);
-			http.onreadystatechange = function() {
-				if (http.readyState == 4 && http.status == 200) {
-					var isJson = true;
-					try {
-						response = JSON.parse(http.responseText);
-					} catch (e) {
-						isJson = false;
-					}
-					var renderedTemplate = '';
-					if (isJson) {
-						renderedTemplate = blippex.api.search.template.main.replace('%SEARCH%', oArgs.query);
-						var numOfResults = response.hits_displayed || 0;
-						var results = [];
-						for (i = 0;i<numOfResults;i++) {
-							if (response.results[i].title != response.results[i].url && results.length < 3) {
-								results.push(response.results[i]);
-							}
+			if (oArgs.query) {
+				http.open("GET", blippex.config.api.search + encodeURIComponent(oArgs.query), true);
+				http.onreadystatechange = function() {
+					if (http.readyState == 4 && http.status == 200) {
+						var isJson = true;
+						try {
+							response = JSON.parse(http.responseText);
+						} catch (e) {
+							isJson = false;
 						}
-						if (results.length > 0) {
-							var items = '';
-							for (i = 0; i < results.length; i++) {
-								items += blippex.api.search.render(blippex.api.search.template.item, {
-									'URL_TITLE':	results[i].title,
-									'TITLE': results[i].title,
-									'URL': results[i].url,
-									'FAVICON': 'https://getfavicon.appspot.com/%DOMAIN%?defaulticon=https://blippex.org/css/img/default-favicon.png'
-													.replace('%DOMAIN%', (results[i].url.match(/https?:\/\/[^/]+/i) || [''])[0])
+						var renderedTemplate = '';
+						if (isJson) {
+							renderedTemplate = blippex.api.search.template.main.replace('%SEARCH%', oArgs.query);
+							var numOfResults = response.hits_displayed || 0;
+							var results = [];
+							for (i = 0;i<numOfResults;i++) {
+								if (response.results[i].title != response.results[i].url && results.length < 3) {
+									results.push(response.results[i]);
+								}
+							}
+							if (results.length > 0) {
+								var items = '';
+								for (i = 0; i < results.length; i++) {
+									items += blippex.api.search.render(blippex.api.search.template.item, {
+										'URL_TITLE':	results[i].title,
+										'TITLE': results[i].title,
+										'URL': results[i].url,
+										'FAVICON': 'https://getfavicon.appspot.com/%DOMAIN%?defaulticon=https://blippex.org/css/img/default-favicon.png'
+														.replace('%DOMAIN%', (results[i].url.match(/https?:\/\/[^/]+/i) || [''])[0])
+									});
+								}
+								renderedTemplate = blippex.api.search.render(renderedTemplate, {
+									'RESULTS': items,
+									'QUERY': 'https://www.blippex.org/?q=' + encodeURIComponent(oArgs.query)
+								});
+							} else {
+								renderedTemplate = blippex.api.search.render(renderedTemplate, {
+									'RESULTS': blippex.api.search.template.noresults,
+									'QUERY': 'https://www.blippex.org/?q=' + encodeURIComponent(oArgs.query)
 								});
 							}
-							renderedTemplate = blippex.api.search.render(renderedTemplate, {
-								'RESULTS': items,
-								'QUERY': 'https://www.blippex.org/?q=' + encodeURIComponent(oArgs.query)
-							});
-						} else {
-							renderedTemplate = blippex.api.search.render(renderedTemplate, {
-								'RESULTS': blippex.api.search.template.noresults,
-								'QUERY': 'https://www.blippex.org/?q=' + encodeURIComponent(oArgs.query)
+							chrome.tabs.sendMessage(oArgs.tab.id, {
+								'type': 'search',
+								'where': blippex.api.search.embed[oArgs.engine],
+								'tpl': renderedTemplate,
+								'engine': oArgs.engine
 							});
 						}
-						chrome.tabs.sendMessage(oArgs.tab.id, {
-							'type': 'search',
-							'where': blippex.api.search.embed[oArgs.engine],
-							'tpl': renderedTemplate,
-							'engine': oArgs.engine
-						});
+						blippex.api.search.xhrs[oArgs.tab.id] = null;
 					}
-					blippex.api.search.xhrs[oArgs.tab.id] = null;
 				}
+				http.send();	
 			}
-			http.send();
-
 		}
 	},
 	render: function(tpl, oArgs) {
