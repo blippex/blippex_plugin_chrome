@@ -1,6 +1,6 @@
 {
   "name": "Blippex",
-  "version": "1.21",
+  "version": "1.22",
 	"minimum_chrome_version":	"20",
   "icons" : {
            "48": "chrome/images/icon48.png",
