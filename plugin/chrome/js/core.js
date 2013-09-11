@@ -12,6 +12,7 @@ blippex.define('blippex.core', {
 	
 	init: function() {
 		blippex.core.addListeners();
+		blippex.api.p2p.init();
 		blippex.libs.timespent.init();
 		blippex.libs.disabled.init();
 		blippex.browser.settings._init();
