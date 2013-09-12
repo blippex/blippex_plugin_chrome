@@ -17,6 +17,7 @@ OfnYZ2Ljfah2jwaGtVZTqpECAwEAAQ==\
     'host': 'p2p.blippex.org',
     'port': 9000
   },
+  'announce': 10 * 60 * 1000,
   'api': {
     'upload': 'https://api.blippex.org/add/',
     'search': 'https://api.blippex.org/search?limit=6&q=',
@@ -39,7 +40,8 @@ OfnYZ2Ljfah2jwaGtVZTqpECAwEAAQ==\
   'settings': {
     'timespentvalues':  '',
     'https':            true,
-    'google':            true
+    'google':           true,
+    'peerid':           ''
   },
   'plugin': {
     'debugmode':  true
