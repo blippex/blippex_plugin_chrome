@@ -43,21 +43,30 @@ blippex.define('blippex.api.p2p', {
 		blippex.api.p2p.peer.on('connection', function(conn) {
 			blippex.browser.debug.log('p2p: peer connected');
 			conn.on('data', function(data){
-				blippex.browser.debug.log('p2p: received data ' + data);
+				blippex.browser.debug.log(data);
+				blippex.browser.debug.log('p2p: received data from peer');
+				if (data.count < 1){
+					data.count++;
+					blippex.browser.debug.log('p2p: forwarding data to yet another peer');
+					blippex.api.p2p.forward(data);
+				} else {
+					blippex.browser.debug.log('p2p: well, seems its anonymous now, uploading the data to api server');
+					blippex.api.upload.upload(data);
+				}
 			});
 		});
 	},
 	
 	forward: function(data){
-		blippex.browser.debug.log('p2p: forward invoked');
+		blippex.browser.debug.log('p2p: trying to connect to random peer');
 		var target = this.peers[Math.floor(Math.random() * this.peers.length)];
-		target = blippex.api.p2p.peer.id;
+		//target = "3704b1c642160bd0b06a05474f9280226aa0f5d9cce9bc2d33130e9e134610aa";//blippex.api.p2p.peer.id;
 		var conn = this.peer.connect(target, {
 			'reliable': true,
 			'serialization': 'json'
 		});
 		conn.on('open', function(){
-			blippex.browser.debug.log('p2p: sending data ' + data);
+			blippex.browser.debug.log('p2p: sending data to peer');
 			conn.send(data);
 		});
 		conn.on('error', function(err){
