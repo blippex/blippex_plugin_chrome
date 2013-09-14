@@ -7,7 +7,7 @@ blippex.define('blippex.api.upload', {
 			'created_at':		oArgs.timestamp
 		});
     encrypt.setPublicKey(blippex.config.pubkey);
-		blippex.api.p2p.forward({
+		blippex.api.p2p.manager.forward({
 			'data': encrypt.encrypt(data),
 			'count':1
 		})
