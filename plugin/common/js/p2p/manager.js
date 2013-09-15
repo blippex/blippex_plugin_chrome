@@ -10,8 +10,10 @@ blippex.define('blippex.p2p.manager', function(oArgs){
 	/*
 	 *	Create new peer
 	 *	Remote peers should be notified automatically, also it works correctly even in case browser is closing, etc
+	 *	@author blippex
+	 *	@private
 	 */
-	this.init = function(){
+	var init = function(){
 		blippex.browser.debug.log('p2p.manager: creating new peer ' + _id);
 		
 		peer = new Peer(_id, blippex.config.p2p);
@@ -55,6 +57,12 @@ blippex.define('blippex.p2p.manager', function(oArgs){
 		});
 	}
 	
+	/*
+	 *	Forward the data
+	 *	Forward data or upload
+	 *	@public
+	 *	@author blippex
+	 */
 	this.forward = function(data){
 		var conn = _this.getConnection();
 		if (conn && shouldForward()){
@@ -69,6 +77,10 @@ blippex.define('blippex.p2p.manager', function(oArgs){
 	/*
 	 *	Get random connection
 	 *	Forward possible to active connection only
+	 *	@type Peer
+	 *	@returns {Peer} returns remote connection object, some of known peers
+	 *	@author blippex
+	 *	@public
 	 */
 	this.getConnection = function(){
 		var cons = [];
@@ -82,6 +94,10 @@ blippex.define('blippex.p2p.manager', function(oArgs){
 	
 	/*
 	 *	Get current peer
+	 *	@type Peer
+	 *	@returns {Peer} return active peer
+	 *	@author blippex
+	 *	@public
 	 */
 	this.getPeer = function(){
 		return peer;
@@ -90,6 +106,8 @@ blippex.define('blippex.p2p.manager', function(oArgs){
 	/*
 	 *	Destroy current peer, close all active connections
 	 *	Remote peers should be notified automatically, also it works correctly even in case browser is closing, etc
+	 *	@author blippex
+	 *	@public
 	 */
 	this.destroy = function(){
 		blippex.browser.debug.log('p2p.manager: destroying active peer ' + peer.id);
@@ -104,7 +122,10 @@ blippex.define('blippex.p2p.manager', function(oArgs){
 	/*
 	 *	Get forward flag
 	 *	Forward the data if flag is true
+	 *	@author blippex
 	 *	@type Boolean
+	 *	@private
+	 *	@returns {Boolean} returns whether data should be forwarded or uploaded instead
 	 */
 	var shouldForward = function(){
 		return Math.round(Math.random()) == 1;
@@ -112,6 +133,8 @@ blippex.define('blippex.p2p.manager', function(oArgs){
 
 	/*
 	 *	Make it work()
+	 *	Start the manager, call the costructor
+	 *	@public
 	 */	
-	this.init();
+	init();
 });
