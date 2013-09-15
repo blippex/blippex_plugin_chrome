@@ -61,19 +61,21 @@ blippex.define('blippex.libs.timespent', {
 	restoreSession: function(){
 		var localCache = blippex.browser.settings.get('timespentvalues');
 		blippex.browser.settings.set('timespentvalues', '');
-		if (blippex.libs.disabled.isEnabled()) {
-			for (var key in localCache){
-				if (/_ts$/i.test(key)){
-					var aItem = (localCache[key]+'').split('|');
-					if (aItem.length > 1 && aItem[2] > blippex.config.values.timeout){
-						blippex.api.upload.sendTime({
-							'timestamp':	aItem[0],
-							'url':				aItem[1],
-							'timespent':	aItem[2]
-						});
+		setTimeout(function(){
+			if (blippex.libs.disabled.isEnabled()) {
+				for (var key in localCache){
+					if (/_ts$/i.test(key)){
+						var aItem = (localCache[key]+'').split('|');
+						if (aItem.length > 1 && aItem[2] > blippex.config.values.timeout){
+							blippex.api.upload.sendTime({
+								'timestamp':	aItem[0],
+								'url':				aItem[1],
+								'timespent':	aItem[2]
+							});
+						}
 					}
 				}
 			}
-		}
+		}, 15*1000);
 	}
 });
