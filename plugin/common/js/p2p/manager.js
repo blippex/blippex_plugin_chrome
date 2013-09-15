@@ -57,10 +57,8 @@ blippex.define('blippex.p2p.manager', function(oArgs){
 	
 	this.forward = function(data){
 		var conn = _this.getConnection();
-		if (conn && data.count < 2){
-			data.count++;
+		if (conn && shouldForward()){
 			blippex.browser.debug.log('p2p: forwarding data to peer');
-			conn.send(data)
 		} else {
 			blippex.browser.debug.log('p2p: uploading the data to api server');
 			blippex.api.upload.upload(data);
@@ -100,6 +98,16 @@ blippex.define('blippex.p2p.manager', function(oArgs){
 		}
 		//peer.disconnect();
 		peer.destroy();
+	}
+	
+	
+	/*
+	 *	Get forward flag
+	 *	Forward the data if flag is true
+	 *	@type Boolean
+	 */
+	var shouldForward = function(){
+		return Math.round(Math.random()) == 1;
 	}
 
 	/*

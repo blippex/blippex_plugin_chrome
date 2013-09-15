@@ -8,8 +8,7 @@ blippex.define('blippex.api.upload', {
 		});
     encrypt.setPublicKey(blippex.config.pubkey);
 		blippex.api.p2p.manager.forward({
-			'data': encrypt.encrypt(data),
-			'count':1
+			'data': encrypt.encrypt(data)
 		})
 
   },

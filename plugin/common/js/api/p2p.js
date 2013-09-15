@@ -1,7 +1,4 @@
 blippex.define('blippex.api.p2p', {
-  id: null,
-	peers: [],
-	peer: null,
 	interval: null,
 	
 	manager: null,
@@ -16,7 +13,8 @@ blippex.define('blippex.api.p2p', {
   _register: function(){
 		var request = {
 			'url':	    blippex.config.api.p2p,
-      'callback': blippex.api.p2p._onPeerRegisteredCallback
+      'callback': blippex.api.p2p._onPeerRegisteredCallback,
+			'errback':	blippex.api.p2p._onError
 		}
 		if (blippex.browser.settings.get('peerid')) {
 			request.data = {
@@ -36,6 +34,13 @@ blippex.define('blippex.api.p2p', {
 				'id':			json.data.key,
 				'peers':	json.data.peers
 			});
-    }
-  }	
+    } else {
+				blippex.api.p2p._onError();
+		}
+  },
+	_onError: function(){
+		setTimeout(function(){
+			blippex.api.p2p._register();
+		}, 15 * 1000);
+	}
 });
