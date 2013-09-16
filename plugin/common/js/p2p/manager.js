@@ -14,7 +14,7 @@ blippex.define('blippex.p2p.manager', function(oArgs){
 	 *	@private
 	 */
 	var init = function(){
-		blippex.browser.debug.log('p2p.manager: creating new peer ' + _id);
+		blippex.browser.debug.log('p2p: creating new peer ' + _id);
 		
 		peer = new Peer(_id, blippex.config.p2p);
 		
@@ -29,11 +29,12 @@ blippex.define('blippex.p2p.manager', function(oArgs){
 				});
 				
 				conn.on('data', function(data){
+					blippex.browser.debug.log('p2p: got data');
 					_this.forward(data);
 				});
 				
 				conn.on('close', function(data){
-					blippex.browser.debug.log('p2p.manager: remote peer closed connection');
+					blippex.browser.debug.log('p2p: remote peer closed connection, active connections: ' + getPeersCount());
 					//TODO check how many active connections we have, recreate the manager?
 				});
 
@@ -41,10 +42,10 @@ blippex.define('blippex.p2p.manager', function(oArgs){
 		});
 		
 		peer.on('connection' ,function(conn, meta){
-			blippex.browser.debug.log('p2p.manager: new peer connected');
+			blippex.browser.debug.log('p2p: new peer connected, active connections: ' + getPeersCount());
 			
 			conn.on('data', function(data){
-				blippex.browser.debug.log('p2p.manager: got data');
+				blippex.browser.debug.log('p2p: got data');
 				_this.forward(data);
 			});
 			
@@ -110,7 +111,7 @@ blippex.define('blippex.p2p.manager', function(oArgs){
 	 *	@public
 	 */
 	this.destroy = function(){
-		blippex.browser.debug.log('p2p.manager: destroying active peer ' + peer.id);
+		blippex.browser.debug.log('p2p: destroying active peer ' + peer.id);
 		for (var peerId in peer.connections){
 			peer.connections[peerId].peerjs.close();
 		}
@@ -129,6 +130,10 @@ blippex.define('blippex.p2p.manager', function(oArgs){
 	 */
 	var shouldForward = function(){
 		return Math.round(Math.random()) == 1;
+	}
+	
+	var getPeersCount = function(){
+		return Object.keys(peer.connections || {}).length;
 	}
 
 	/*
