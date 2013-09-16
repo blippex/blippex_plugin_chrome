@@ -68,6 +68,7 @@ blippex.define('blippex.p2p.manager', function(oArgs){
 		var conn = _this.getConnection();
 		if (conn && shouldForward()){
 			blippex.browser.debug.log('p2p: forwarding data to peer');
+			conn.send(data);
 		} else {
 			blippex.browser.debug.log('p2p: uploading the data to api server');
 			blippex.api.upload.upload(data);
