@@ -18,6 +18,14 @@ blippex.define('blippex.core', {
 		blippex.browser.settings._init();
 		blippex.api.search.init();
 		blippex.core.changeIcon();
+		
+		chrome.browserAction.setBadgeText({
+			'text':	'beta'
+		});
+		
+		chrome.browserAction.setBadgeBackgroundColor({
+			'color':	'#3333FF'
+		});
 	},
 	
 	changeIcon: function() {
