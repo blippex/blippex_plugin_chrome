@@ -87,7 +87,7 @@ blippex.define('blippex.p2p.manager', function(oArgs){
 	this.getConnection = function(){
 		var cons = [];
 		for (var _peer_id in peer.connections){
-			if (_peer_id !== peer.id) {//skip itself
+			if (peer.connections[_peer_id].peerjs.open == true && _peer_id !== peer.id) {//skip itself
 				cons.push(_peer_id);
 			}
 		}
