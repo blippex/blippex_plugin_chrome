@@ -24,8 +24,7 @@ blippex.define('blippex.p2p.manager', function(oArgs){
 			_peers.forEach(function(peer_id){
 				//
 				var conn = peer.connect(peer_id, {
-					'reliable': true,
-					'serialization': 'json'
+					'reliable': true
 				});
 				
 				conn.on('data', function(data){

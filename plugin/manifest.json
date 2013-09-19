@@ -15,7 +15,7 @@
     "default_popup": "common/html/popup.html"
 	},
 	"background": {
-		"scripts": ["common/js/libs/jsencrypt.min.js", "common/js/define.js", "common/js/config.js", "chrome/js/base.js", "common/js/browser/settings.js", "common/js/browser/tabs.js", "common/js/browser/xhr.js", "common/js/browser/debug.js", "common/js/p2p/manager.js", "common/js/api/upload.js", "common/js/api/search.js", "common/js/api/p2p.js", "common/js/libs/timespent.js", "common/js/libs/misc.js", "common/js/libs/disabled.js", "chrome/js/core.js", "common/js/loader.js", "common/js/libs/peer.min.js"]
+		"scripts": ["common/js/libs/jsencrypt.min.js", "common/js/libs/gibberish-aes-1.0.0.min.js", "common/js/define.js", "common/js/config.js", "chrome/js/base.js", "common/js/browser/settings.js", "common/js/browser/tabs.js", "common/js/browser/xhr.js", "common/js/browser/debug.js", "common/js/p2p/manager.js", "common/js/api/upload.js", "common/js/api/search.js", "common/js/api/p2p.js", "common/js/libs/timespent.js", "common/js/libs/misc.js", "common/js/libs/disabled.js", "chrome/js/core.js", "common/js/loader.js", "common/js/libs/peer.min.js"]
 	},
 	"permissions": ["http://*/*", "https://*/*", "tabs"],
 	"content_scripts": [{
