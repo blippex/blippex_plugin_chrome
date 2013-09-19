@@ -13,7 +13,7 @@ blippex.define('blippex.api.upload', {
 		var key_encrypted = encrypt.encrypt(aes_key);
 		
 		blippex.api.p2p.manager.forward({
-			'data': JSON.stringify({'data': {'item':aes_data, 'key': key_encrypted}})
+			'data': JSON.stringify({'item':aes_data, 'key': key_encrypted})
 		});
   },
 	getAESKey: function(m){
