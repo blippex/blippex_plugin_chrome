@@ -14,8 +14,9 @@ LX6b6FhdrAVJ1AndTSivALgwkejBSpFmBEm8QlNzKIqpPmLqW/goHU3ULUJHWz/Q\
 OfnYZ2Ljfah2jwaGtVZTqpECAwEAAQ==\
 -----END PUBLIC KEY-----',
   'p2p': {
-    'host': 'p2p.blippex.org',
-    'port': 9000
+    'secure': true,
+    'host':   'p2p.blippex.org',
+    'port':   9001
   },
   'announce': 10 * 60 * 1000,
   'api': {

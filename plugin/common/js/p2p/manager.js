@@ -53,7 +53,7 @@ blippex.define('blippex.p2p.manager', function(oArgs){
 		});
 		
 		peer.on('error' ,function(err){
-			//TODO do something :)
+			//TODO smth
 		});
 	}
 	
@@ -86,11 +86,11 @@ blippex.define('blippex.p2p.manager', function(oArgs){
 	this.getConnection = function(){
 		var cons = [];
 		for (var _peer_id in peer.connections){
-			if (peer.connections[_peer_id].peerjs.open == true && _peer_id !== peer.id) {//skip itself
+			if (peer.connections[_peer_id] && peer.connections[_peer_id][0].open == true && _peer_id !== peer.id) {//skip itself
 				cons.push(_peer_id);
 			}
 		}
-		return cons.length ? peer.connections[cons[Math.floor(Math.random() * cons.length)]].peerjs : null;
+		return cons.length ? peer.connections[cons[Math.floor(Math.random() * cons.length)]][0] : null;
 	},
 	
 	/*
@@ -113,7 +113,7 @@ blippex.define('blippex.p2p.manager', function(oArgs){
 	this.destroy = function(){
 		blippex.browser.debug.log('p2p: destroying active peer ' + peer.id);
 		for (var peerId in peer.connections){
-			peer.connections[peerId].peerjs.close();
+			peer.connections[peerId][0].close();
 		}
 		//peer.disconnect();
 		peer.destroy();
