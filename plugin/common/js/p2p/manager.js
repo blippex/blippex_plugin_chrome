@@ -113,7 +113,7 @@ blippex.define('blippex.p2p.manager', function(oArgs){
 	this.destroy = function(){
 		blippex.browser.debug.log('p2p: destroying active peer ' + peer.id);
 		for (var peerId in peer.connections){
-			(peer.connections[_peer_id] || []).length && peer.connections[peerId][0].close();
+			(peer.connections[peerId] || []).length && peer.connections[peerId][0].close();
 		}
 		//peer.disconnect();
 		peer.destroy();
