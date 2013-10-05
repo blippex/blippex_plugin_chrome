@@ -73,7 +73,7 @@ blippex.define('blippex.api.search', {
 		});
 	},
 	search: function(oArgs) {
-		if (blippex.browser.settings.get('google')) {
+		if (oArgs.tab && blippex.browser.settings.get('google')) {
 			if (blippex.api.search.xhrs[oArgs.tab.id]) {
 				blippex.api.search.xhrs[oArgs.tab.id].xhr.abort();
 			}
