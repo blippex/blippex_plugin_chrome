@@ -838,7 +838,7 @@ var util = {
     return false;
   },
   isSecure: function() {
-    return true;//location.protocol === 'https:';
+    return location.protocol === 'https:';
   }
 };
 /**
