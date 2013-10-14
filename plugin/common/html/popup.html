@@ -45,13 +45,27 @@
         	#popup {
         		padding: 20px;
         		width: 400px;
-				height: 125px;
+				height: 140px;
 				margin: 0 auto;
 				position: relative;
 				overflow: hidden;
         	}
 
-        	img {
+        	#blippex-settings {
+        		position: absolute;
+        		right: 5px;
+        		top: 5px;
+				display: block;
+				width: 16px;
+				height: 16px;
+			}
+
+				#blippex-settings img {
+					display: block;
+					width: 100%;
+				}
+
+        	img.logo {
         		float: left;
         		width: 37px;
         		margin: 3px 10px 0 0;
@@ -147,13 +161,28 @@
 	        	}
 
 			footer {
+				display: block;
 				font-size: 12px;
 				color: #777;
 				position: absolute;
 				bottom: 10px;
 				width: 400px;
-				text-align: center;
+				text-align: left;
+				padding-left: 47px;
+				overflow: hidden;
+				-webkit-box-sizing: border-box;
+				       -moz-box-sizing: border-box;
+						    box-sizing: border-box;
 			}
+
+				footer div {
+					width: 50%;
+					float: left;
+					padding: 7px 5px;
+					-webkit-box-sizing: border-box;
+				       -moz-box-sizing: border-box;
+						    box-sizing: border-box;
+				}
 
         </style>
 				<script type="text/javascript" src="../js/define.js"></script>
@@ -161,7 +190,10 @@
     </head>
     <body>
     	<div id="popup">
-    		<img src="../images/logo-popup.png" alt="Blippex.org" />
+    		<a href="#" title="Settings" id="blippex-settings">
+    			<img src="../images/settings.png" alt="Settings" />
+    		</a>
+    		<img src="../images/logo-popup.png" alt="Blippex.org" class="logo" />
     		<form id="blippex-form">
     			<input type="text" id="blippex-input-value" placeholder="Looking for something?" autofocus />
     			<input type="submit" value="Search" id="blippex-input-submit" />
@@ -170,7 +202,19 @@
     			</span>
     		</form>
     		<footer>
-    			<input type="checkbox" name="https" value="1" checked="checked" id="blippex-checkbox-https" /> Send HTTPS pages | <input type="checkbox" name="google" value="1" checked="checked" id="blippex-checkbox-google" /> Show on Google.com | <a href="#" title="" id="blippex-input-enable"></a>
+    			<div>
+    				<input type="checkbox" name="https" value="1" checked="checked" id="blippex-checkbox-https" /> Send HTTPS pages
+    			</div>
+    			<div>
+    				<input type="checkbox" name="google" value="1" checked="checked" id="blippex-checkbox-google" /> Show on Google.com
+    			</div>
+    			<div>
+    				<input type="checkbox" name="p2p" value="1" checked="checked" id="blippex-checkbox-p2p" /> 
+    				Disable P2P network
+    			</div>
+    			<div>
+    				<a href="#" title="" id="blippex-input-enable"></a>
+    			</div>
     		</footer>
     	</div>
     </body>
