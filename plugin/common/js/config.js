@@ -41,7 +41,8 @@ OfnYZ2Ljfah2jwaGtVZTqpECAwEAAQ==\
     'timespentvalues':  '',
     'https':            true,
     'google':           true,
-    'peerid':           ''
+    'peerid':           '',
+    'p2p':              true
   },
   'plugin': {
     'debugmode':  true
