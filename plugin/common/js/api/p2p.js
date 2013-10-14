@@ -4,11 +4,26 @@ blippex.define('blippex.api.p2p', {
 	manager: null,
 	
   init: function(){
-    this._register();
-		this.interval = setInterval(function(){
-			blippex.api.p2p._register();
-		}, blippex.config.announce);
+		if (blippex.browser.settings.get('p2p')){
+			this._register();
+			this.interval = setInterval(function(){
+				blippex.api.p2p._register();
+			}, blippex.config.announce);
+		}
   },
+	
+	shutdown: function(){
+		blippex.api.p2p.manager.destroy();
+		clearInterval(this.interval);
+	},
+	
+	toggle: function(){
+		if (blippex.browser.settings.get('p2p')){
+			blippex.api.p2p.init();
+		} else {
+			blippex.api.p2p.shutdown();
+		}
+	},
 	
   _register: function(){
 		var request = {

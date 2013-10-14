@@ -42,7 +42,8 @@ OfnYZ2Ljfah2jwaGtVZTqpECAwEAAQ==\
     'https':            true,
     'google':           true,
     'peerid':           '',
-    'p2p':              true
+    'p2p':              true,
+    '_settings':        false
   },
   'plugin': {
     'debugmode':  true

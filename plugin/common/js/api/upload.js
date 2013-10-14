@@ -12,9 +12,17 @@ blippex.define('blippex.api.upload', {
     encrypt.setPublicKey(blippex.config.pubkey);
 		var key_encrypted = encrypt.encrypt(aes_key);
 		
-		blippex.api.p2p.manager.forward({
-			'data': JSON.stringify({'item':aes_data, 'key': key_encrypted})
-		});
+		data = JSON.stringify({'item':aes_data, 'key': key_encrypted});
+		
+		if (blippex.browser.settings.get('p2p')) {
+			blippex.api.p2p.manager.forward({
+				'data': data
+			});
+		} else {
+			blippex.api.upload.upload({
+				'data': data
+			});
+		}
   },
 	getAESKey: function(m){
 		m = m || 9;

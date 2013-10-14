@@ -29,7 +29,8 @@ blippex.define('blippex.popup', {
 		document.getElementById('blippex-checkbox-https').checked = _blippex.browser.settings.get('https', true);
 		document.getElementById('blippex-checkbox-google').checked = _blippex.browser.settings.get('google', true);
 		document.getElementById('blippex-checkbox-p2p').checked = _blippex.browser.settings.get('p2p', true);
-		document.getElementById('blippex-input-enable').innerText = _blippex.libs.disabled.isEnabled() ? "Deactivate for 30min" : "Reactivate"
+		document.getElementById('blippex-input-enable').innerText = _blippex.libs.disabled.isEnabled() ? "Deactivate for 30min" : "Reactivate";
+		document.querySelector('footer').style.display = _blippex.browser.settings.get('_settings', false) ? '' : 'none';
 	},
 	onEnable: function(){
 		_blippex.libs.disabled.toggle();
@@ -50,16 +51,12 @@ blippex.define('blippex.popup', {
 	},
 	onSettings: function(){
 		var footer = document.querySelector('footer');
-		switch (footer.style.display) {
-			case 'none':
-				footer.style.display = '';
-				break;
-			default:
-				footer.style.display = 'none';
-		}
+		_blippex.browser.settings.set('_settings', footer.style.display === 'none');
+		footer.style.display = footer.style.display === 'none' ? '' : 'none';
 	},
 	onP2P: function(value){
 		_blippex.browser.settings.set('p2p', value);
+		_blippex.api.p2p.toggle();
 	},
 	onHide: function(id){
 		window.close();

@@ -1,0 +1,175 @@
+        	@import url(http://fonts.googleapis.com/css?family=PT+Sans:400,700);
+        	
+        	html, body {
+        		width: 100%;
+        		margin: 0;
+        		padding: 0;
+        		overflow: hidden;
+        	}
+
+        	html {
+        		display: table;
+        	}
+
+        	a {
+        		outline: none;
+        		border: none;
+				text-decoration: underline;
+        	}
+
+        		a:link, a:visited {
+        			color: rgba(107,151,191,1);
+        		}
+
+        		a:hover, a:active, a:focus {
+        			color: rgba(77,121,161,1);
+        		}
+
+        	body {
+				font: 14px/16px "PT-Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+				color: #222222;
+        		display: table-cell;
+        		vertical-align: middle;
+        	}
+
+        	#popup {
+        		padding: 20px;
+        		width: 400px;
+				margin: 0 auto;
+				position: relative;
+				overflow: hidden;
+        	}
+
+        	#blippex-settings {
+        		position: absolute;
+        		right: 5px;
+        		top: 5px;
+				display: block;
+				width: 16px;
+				height: 16px;
+			}
+
+				#blippex-settings img {
+					display: block;
+					width: 100%;
+				}
+
+        	img.logo {
+        		float: left;
+        		width: 37px;
+        		margin: 3px 10px 0 0;
+        	}
+
+        	form {
+        		width: 350px;
+        		float: right;
+        	}
+
+        	input {
+        		font-size: 14px;
+				line-height: 18px;
+				border: 0;
+        		padding: 10px;
+        		margin: 0;
+        		-moz-background-clip: padding-box;
+				-webkit-background-clip: padding-box;
+				background-clip: padding-box;
+        	}
+			
+			input[type="text"] {
+				width: 240px;
+				border: 0;
+				background: #f4f4f2;
+				-webkit-appearance: textfield;
+				-moz-box-sizing: content-box;
+				-webkit-box-sizing: content-box;
+				box-sizing: content-box;
+				-webkit-border-top-right-radius: 0;
+				-webkit-border-bottom-right-radius: 0;
+				-webkit-border-bottom-left-radius: 4px;
+				-webkit-border-top-left-radius: 4px;
+				-moz-border-radius-topright: 0;
+				-moz-border-radius-bottomright: 0;
+				-moz-border-radius-bottomleft: 4px;
+				-moz-border-radius-topleft: 4px;
+				border-top-right-radius: 0;
+				border-bottom-right-radius: 0;
+				border-bottom-left-radius: 4px;
+				border-top-left-radius: 4px;
+				border-top: 2px solid rgba(107,151,191,1);
+                border-bottom: 2px solid rgba(107,151,191,1);
+                border-left: 2px solid rgba(107,151,191,1);
+			}
+
+				input[type="text"]:hover,
+				input[type="text"]:active,
+				input[type="text"]:focus {
+					outline: 0;
+	            }
+
+	            input[type="text"]:active,
+				input[type="text"]:focus {
+					background: white;
+	            }
+
+			input[type="submit"] {
+				margin-left: -5px;
+				border: 0;
+				background: rgba(250,167,50,1);;
+				color: white;
+				-webkit-border-top-right-radius: 4px;
+				-webkit-border-bottom-right-radius: 4px;
+				-webkit-border-bottom-left-radius: 0;
+				-webkit-border-top-left-radius: 0;
+				-moz-border-radius-topright: 4px;
+				-moz-border-radius-bottomright: 4px;
+				-moz-border-radius-bottomleft: 0;
+				-moz-border-radius-topleft: 0;
+				border-top-right-radius: 4px;
+				border-bottom-right-radius: 4px;
+				border-bottom-left-radius: 0;
+				border-top-left-radius: 0;
+				border-top: 2px solid rgba(107,151,191,1);
+                border-bottom: 2px solid rgba(107,151,191,1);
+                border-right: 2px solid rgba(107,151,191,1);
+			}
+
+				input[type="submit"]:hover,
+				input[type="submit"]:active,
+				input[type="submit"]:focus {
+					cursor: pointer;
+	            }
+
+	        span {
+	        	display: block;
+	        	padding-top: 10px;
+	        }
+
+	        	input[type="checkbox"] {
+
+	        	}
+
+			footer {
+				display: block;
+				font-size: 12px;
+				color: #777;
+				position: relative;
+				bottom: 10px;
+				width: 400px;
+				text-align: left;
+				padding-left: 47px;
+				padding-top:30px;
+				overflow: hidden;
+				-webkit-box-sizing: border-box;
+				       -moz-box-sizing: border-box;
+						    box-sizing: border-box;
+			}
+
+				footer div {
+					width: 50%;
+					float: left;
+					padding: 7px 5px;
+					-webkit-box-sizing: border-box;
+				       -moz-box-sizing: border-box;
+						    box-sizing: border-box;
+				}
