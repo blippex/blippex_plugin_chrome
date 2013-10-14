@@ -11,6 +11,7 @@ blippex.define('blippex.popup', {
 		blippex.popup.popupRenderer();
 	},
 	initHandlers: function(){
+		blippex.popup.addEventListener('blippex-settings', function(){ /* expand or shrink popup */ return false; }, 'click');
 		blippex.popup.addEventListener('blippex-input-value', function(event){if (event.keyCode == 13) {blippex.popup.onSearch();}}, 'keydown');
 		blippex.popup.addEventListener('blippex-input-enable', function(){blippex.popup.onEnable()});
 		blippex.popup.addEventListener('blippex-form', function(){return false;}, 'submit');
@@ -39,6 +40,7 @@ blippex.define('blippex.popup', {
 		_blippex.browser.settings.set('google', value);
 	},
 	onSearch: function(){
+		var _query = document.getElementById('blippex-input-value');
 		var _query = document.getElementById('blippex-input-value');
 		if (_query && _query.value.length){
 			_blippex.browser.tabs.add('https://www.blippex.org/?q='+encodeURIComponent(_query.value));

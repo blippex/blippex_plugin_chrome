@@ -51,7 +51,7 @@
 				overflow: hidden;
         	}
 
-        	.settings {
+        	#blippex-settings {
         		position: absolute;
         		right: 5px;
         		top: 5px;
@@ -60,7 +60,7 @@
 				height: 16px;
 			}
 
-				.settings img {
+				#blippex-settings img {
 					display: block;
 					width: 100%;
 				}
@@ -170,11 +170,10 @@
 				text-align: left;
 				padding-left: 47px;
 				overflow: hidden;
+				-webkit-box-sizing: border-box;
+				       -moz-box-sizing: border-box;
+						    box-sizing: border-box;
 			}
-
-				.footer .off {
-					display: none;
-				}
 
 				footer div {
 					width: 50%;
@@ -191,7 +190,7 @@
     </head>
     <body>
     	<div id="popup">
-    		<a href="#" title="Settings" class="settings">
+    		<a href="#" title="Settings" id="blippex-settings">
     			<img src="../images/settings.png" alt="Settings" />
     		</a>
     		<img src="../images/logo-popup.png" alt="Blippex.org" class="logo" />
