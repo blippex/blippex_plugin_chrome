@@ -19,13 +19,13 @@ blippex.define('blippex.core', {
 		blippex.api.search.init();
 		blippex.core.changeIcon();
 		
-		chrome.browserAction.setBadgeText({
-			'text':	'beta'
-		});
-		
-		chrome.browserAction.setBadgeBackgroundColor({
-			'color':	'#3333FF'
-		});
+		//chrome.browserAction.setBadgeText({
+		//	'text':	'beta'
+		//});
+		//
+		//chrome.browserAction.setBadgeBackgroundColor({
+		//	'color':	'#3333FF'
+		//});
 	},
 	
 	changeIcon: function() {
