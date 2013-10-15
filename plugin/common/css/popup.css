@@ -40,6 +40,39 @@
 				overflow: hidden;
         	}
 
+        	.tooltip {
+			    display: inline;
+			    position: relative;
+			}
+
+				.tooltip span {
+					display: inline;
+				}
+
+				.tooltip:hover:after {
+				    background: rgba(135,191,242,0.95);
+				    border-radius: 5px;
+				    bottom: 26px;
+				    color: #fff;
+				    content: attr(title);
+				    left: 0%;
+				    padding: 5px 15px;
+				    position: absolute;
+				    z-index: 98;
+				    width: 135px;
+				}
+
+				.tooltip:hover:before {
+				    border: solid;
+				    border-color: rgba(135,191,242,0.95) transparent;
+				    border-width: 6px 6px 0 6px;
+				    bottom: 20px;
+				    content: "";
+				    left: 50%;
+				    position: absolute;
+				    z-index: 99;
+				}
+
         	#blippex-settings {
         		position: absolute;
         		right: 5px;
@@ -159,7 +192,7 @@
 				text-align: left;
 				padding-left: 47px;
 				padding-top:30px;
-				overflow: hidden;
+				clear: both;
 				-webkit-box-sizing: border-box;
 				       -moz-box-sizing: border-box;
 						    box-sizing: border-box;
