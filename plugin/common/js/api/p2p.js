@@ -4,7 +4,7 @@ blippex.define('blippex.api.p2p', {
 	manager: null,
 	
   init: function(){
-		if (blippex.browser.settings.get('p2p')){
+		if (blippex.browser.settings.get('p2p') && blippex.libs.disabled.isEnabled()){
 			this._register();
 			this.interval = setInterval(function(){
 				blippex.api.p2p._register();
@@ -18,9 +18,11 @@ blippex.define('blippex.api.p2p', {
 	},
 	
 	toggle: function(){
-		if (blippex.browser.settings.get('p2p')){
+		if (blippex.browser.settings.get('p2p') && blippex.libs.disabled.isEnabled()){
+			//TODO observer
 			blippex.api.p2p.init();
 		} else {
+			//TODO observer
 			blippex.api.p2p.shutdown();
 		}
 	},

@@ -24,10 +24,14 @@ blippex.define('blippex.libs.disabled', {
 	set: function(){
 		blippex.browser.settings.set('timedisabled', new Date().getTime());
 		blippex.core.changeIcon();
+		//TODO use observer
+		blippex.api.p2p.toggle();
 		blippex.libs.disabled._setTimeout(blippex.config.values.disabled);
 	},
 	unset: function(){
 		blippex.browser.settings.set('timedisabled', 0);
+		//TODO use observer
+		blippex.api.p2p.toggle();
 		blippex.core.changeIcon();
 		blippex.libs.disabled._clearTimeout();
 	},
@@ -42,5 +46,7 @@ blippex.define('blippex.libs.disabled', {
 	},
 	onTimeout: function(){
 		blippex.core.changeIcon();
+		//TODO use observer
+		blippex.api.p2p.toggle();
 	}
 });
