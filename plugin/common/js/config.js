@@ -34,8 +34,7 @@ OfnYZ2Ljfah2jwaGtVZTqpECAwEAAQ==\
   },
   'values': {
     'timedisabled': 0,
-    'timeout':      2,
-    'disabled':     30 * 60 * 1000
+    'timeout':      2
   },
   'settings': {
     'timespentvalues':  '',

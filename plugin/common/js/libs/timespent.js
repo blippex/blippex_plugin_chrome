@@ -15,7 +15,7 @@ blippex.define('blippex.libs.timespent', {
 	
 	capture: function(){
 		chrome.tabs.getSelected(null, function (activeTab){
-			if (activeTab && blippex.core.tabs[activeTab.id] && blippex.libs.disabled.isEnabled()){
+			if (activeTab && blippex.core.tabs[activeTab.id]){
 				if (activeTab.status == 'complete'){
 					var tabId = activeTab.id;
 					chrome.windows.getCurrent(function(activeWindow){
@@ -36,8 +36,7 @@ blippex.define('blippex.libs.timespent', {
 		var tabId = oArgs.tabId;
 		if (blippex.core.tabs[tabId]
 				&& blippex.core.tabs[tabId].status == blippex.config.status.ok
-				&& blippex.core.tabs[tabId].timespent > blippex.config.values.timeout
-				&& blippex.libs.disabled.isEnabled()){
+				&& blippex.core.tabs[tabId].timespent > blippex.config.values.timeout){
 					blippex.browser.debug.log('sending time %s sec. for %s'.replace('%s',blippex.core.tabs[tabId].timespent).replace('%s',blippex.core.tabs[tabId].url))
 					blippex.api.upload.sendTime({
 						'timestamp':	blippex.core.tabs[tabId].timestamp,
@@ -62,17 +61,15 @@ blippex.define('blippex.libs.timespent', {
 		var localCache = blippex.browser.settings.get('timespentvalues');
 		blippex.browser.settings.set('timespentvalues', '');
 		setTimeout(function(){
-			if (blippex.libs.disabled.isEnabled()) {
-				for (var key in localCache){
-					if (/_ts$/i.test(key)){
-						var aItem = (localCache[key]+'').split('|');
-						if (aItem.length > 1 && aItem[2] > blippex.config.values.timeout){
-							blippex.api.upload.sendTime({
-								'timestamp':	aItem[0],
-								'url':				aItem[1],
-								'timespent':	aItem[2]
-							});
-						}
+			for (var key in localCache){
+				if (/_ts$/i.test(key)){
+					var aItem = (localCache[key]+'').split('|');
+					if (aItem.length > 1 && aItem[2] > blippex.config.values.timeout){
+						blippex.api.upload.sendTime({
+							'timestamp':	aItem[0],
+							'url':				aItem[1],
+							'timespent':	aItem[2]
+						});
 					}
 				}
 			}

@@ -14,7 +14,6 @@ blippex.define('blippex.core', {
 		blippex.core.addListeners();
 		blippex.api.p2p.init();
 		blippex.libs.timespent.init();
-		blippex.libs.disabled.init();
 		blippex.browser.settings._init();
 		blippex.api.search.init();
 		blippex.core.changeIcon();
@@ -29,7 +28,7 @@ blippex.define('blippex.core', {
 	},
 	
 	changeIcon: function() {
-		chrome.browserAction.setIcon({'path': blippex.core.icons[blippex.libs.disabled.isEnabled() ? 'active' : 'inactive'].icon});
+		chrome.browserAction.setIcon({'path': blippex.core.icons.active.icon});
   },
 	
 	addListeners: function() {
