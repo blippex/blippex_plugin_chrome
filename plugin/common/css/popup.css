@@ -146,6 +146,8 @@
 	        }
 
 	        	input[type="checkbox"] {
+	        		display: block;
+	        		float: left;
 	        		padding: 0;
 	        		margin: 0;
 	        		line-height: 1;
@@ -173,20 +175,21 @@
 					width: 50%;
 					float: left;
 					padding: 7px 5px;
+					overflow: hidden;
 					-webkit-box-sizing: border-box;
 				       -moz-box-sizing: border-box;
 						    box-sizing: border-box;
 				}
 
 					footer div a, footer div label {
-						display: inline;
-						padding-left: 2px;
+						display: block;
+						float: left;
+						margin-left: 5px;
 						color: #777;
-						text-decoration: none;
 						line-height: 1;
 					}
 
 					footer #blippex-input-enable {
-						padding-left: 17px;
-						color: #777;
+						/* padding-left: 17px; */
+						/* color: #777; */
 					}
