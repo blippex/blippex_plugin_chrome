@@ -1,6 +1,6 @@
 {
-  "name": "Blippex P2P beta",
-  "version": "1.999",
+  "name": "Blippex",
+  "version": "1.5",
 	"minimum_chrome_version":	"26",
   "icons" : {
            "48": "chrome/images/icon48.png",
